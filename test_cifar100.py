@@ -6,6 +6,7 @@ transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5
 test_dataset = CIFAR100(r'C:\Users\caeit\Desktop\cifar100', download=True, transform=transform, train=False)
 test_loader = DataLoader(test_dataset, batch_size=16, shuffle=True)
 alexnet1 = torch.load('cifar100.pkl')
+alexnet1.eval()
 correct = 0 
 for num, (x_train, y_train) in enumerate(test_loader):
     x_train,y_train = x_train.cuda(1),y_train.cuda(1)
